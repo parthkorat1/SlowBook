@@ -1,0 +1,119 @@
+.daily-page-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.daily-page-editor {
+    margin-bottom: 20px;
+}
+
+.editor-header {
+    padding: 16px;
+    background: var(--gradient-header);
+    border-bottom: 1px solid var(--mood-dark);
+}
+
+.date-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-inverse);
+}
+
+.date-icon {
+    font-size: 20px;
+}
+
+.date-text {
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.editor-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mood-select {
+    font-size: 14px;
+    padding: 10px 12px;
+}
+
+.daily-textarea {
+    min-height: 150px;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.photo-upload-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.photo-upload-slot {
+    aspect-ratio: 1;
+    border: 2px dashed var(--border-medium);
+    border-radius: var(--radius-md);
+    background: var(--bg-tertiary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.photo-upload-slot:hover {
+    border-color: var(--mood-primary);
+    background: var(--mood-accent);
+    color: var(--mood-primary);
+    transform: scale(1.02);
+}
+
+.photo-added {
+    color: var(--mood-primary);
+}
+
+.photo-empty {
+    color: var(--text-muted);
+}
+
+.editor-footer {
+    padding: 16px 20px;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.daily-tips {
+    background: linear-gradient(135deg, #fff9e6 0%, #fff5cc 100%);
+    border-color: #ffd700;
+}
+
+.tips-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 12px;
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+.tips-list li {
+    margin-bottom: 6px;
+}

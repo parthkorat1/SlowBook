@@ -1,0 +1,116 @@
+.room-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.room-header {
+    margin-bottom: 20px;
+}
+
+.room-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+}
+
+.room-header-info {
+    flex: 1;
+}
+
+.room-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 6px 0;
+}
+
+.room-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+}
+
+.room-stats {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.room-content {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+}
+
+.room-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.post-composer {
+    padding: 16px;
+}
+
+.composer-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.room-sidebar {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+}
+
+.members-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.member-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s ease;
+}
+
+.member-item:hover {
+    background: var(--bg-tertiary);
+}
+
+.member-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.member-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .room-content {
+        grid-template-columns: 1fr;
+    }
+
+    .room-sidebar {
+        position: static;
+    }
+}

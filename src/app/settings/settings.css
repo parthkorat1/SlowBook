@@ -1,0 +1,231 @@
+.settings-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.settings-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+}
+
+.settings-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    height: fit-content;
+    position: sticky;
+    top: 80px;
+}
+
+.tab-btn {
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab-btn:hover {
+    background: var(--bg-tertiary);
+}
+
+.tab-btn.active {
+    background: var(--mood-accent);
+    color: var(--mood-primary);
+    border-left: 3px solid var(--mood-primary);
+}
+
+.settings-content {
+    padding: 24px;
+}
+
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.mood-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.mood-selector-item input {
+    display: none;
+}
+
+.mood-selector-card {
+    padding: 16px;
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--bg-secondary);
+}
+
+.mood-selector-item input:checked+.mood-selector-card {
+    border-width: 3px;
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.05);
+}
+
+.mood-selector-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.mood-selector-emoji {
+    font-size: 32px;
+}
+
+.mood-selector-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.mood-color-preview {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+.background-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.background-option {
+    padding: 32px 16px;
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--mood-accent) 0%, var(--bg-tertiary) 100%);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.background-option:hover {
+    border-color: var(--mood-primary);
+    transform: scale(1.05);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.setting-info {
+    flex: 1;
+}
+
+.setting-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.setting-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-medium);
+    transition: 0.3s;
+    border-radius: 26px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch input:checked+.toggle-slider {
+    background: var(--gradient-button);
+}
+
+.toggle-switch input:checked+.toggle-slider:before {
+    transform: translateX(24px);
+}
+
+@media (max-width: 768px) {
+    .settings-container {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-tabs {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .mood-selector-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .background-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

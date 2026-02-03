@@ -1,0 +1,80 @@
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.mood-option {
+    cursor: pointer;
+}
+
+.mood-option input {
+    display: none;
+}
+
+.mood-card {
+    padding: 12px;
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    background: var(--bg-secondary);
+}
+
+.mood-option input:checked+.mood-card {
+    border-width: 3px;
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.05);
+}
+
+.mood-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.mood-emoji {
+    font-size: 24px;
+}
+
+.mood-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.form-hint {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.welcome-preview {
+    text-align: center;
+}
+
+.welcome-preview h3 {
+    font-size: 18px;
+    color: var(--mood-primary);
+    margin-bottom: 8px;
+}
+
+.welcome-preview p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.preview-card {
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.preview-card h4 {
+    font-size: 16px;
+    margin: 0 0 4px 0;
+    color: var(--text-primary);
+}

@@ -1,0 +1,177 @@
+.profile-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-header-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.profile-info {
+    flex: 1;
+    color: var(--text-inverse);
+}
+
+.profile-name {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.profile-username {
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    opacity: 0.9;
+}
+
+.profile-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+}
+
+.profile-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-bio {
+    padding: 20px;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--mood-primary);
+}
+
+.stat-label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.daily-pages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.daily-page-mini {
+    padding: 12px;
+}
+
+.mini-date {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.mini-mood {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.mini-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.custom-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+.color-preview {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--border-medium);
+    box-shadow: var(--shadow-sm);
+}
+
+.guestbook-entries {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.guestbook-entry {
+    padding: 8px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.guestbook-entry strong {
+    color: var(--mood-primary);
+}
+
+@media (max-width: 768px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .daily-pages-grid {
+        grid-template-columns: 1fr;
+    }
+}
