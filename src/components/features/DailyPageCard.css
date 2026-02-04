@@ -1,0 +1,20 @@
+.daily-page-card {
+    transition: all 0.3s ease;
+}
+
+.daily-page-card:hover {
+    transform: translateY(-2px);
+}
+
+.play-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px;
+    transition: transform 0.2s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.2);
+}

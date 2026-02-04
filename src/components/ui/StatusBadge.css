@@ -1,0 +1,11 @@
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-text {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: capitalize;
+}
