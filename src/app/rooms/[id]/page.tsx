@@ -3,7 +3,7 @@
 import { use } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { getRoomById, getPostsByRoomId, getUserById } from '@/data/mockData';
-import '../rooms.css';
+import '@/app/rooms/rooms.css';
 import './room.css';
 
 interface RoomPageProps {
