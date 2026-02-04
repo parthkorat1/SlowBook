@@ -27,7 +27,11 @@ export default function MemoryBoxPage() {
                             <div key={page.id} className="memory-card polaroid">
                                 <div className="polaroid-photo">
                                     {page.photos && page.photos.length > 0 ? (
-                                        <div className="photo-placeholder">📷</div>
+                                        <img
+                                            src={`https://picsum.photos/seed/memory${page.id}/300/300`}
+                                            alt={page.mood}
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        />
                                     ) : (
                                         <div className="no-photo">
                                             <span className="mood-emoji-large">{page.mood[0]}</span>

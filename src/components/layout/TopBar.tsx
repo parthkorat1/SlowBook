@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { currentUser } from '@/data/mockData';
@@ -7,11 +8,23 @@ import './TopBar.css';
 
 export default function TopBar() {
     const pathname = usePathname();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
         <div className="topbar">
             <div className="topbar-container">
                 <div className="topbar-left">
+                    <button
+                        className="mobile-nav-toggle"
+                        onClick={() => {
+                            setMobileMenuOpen(!mobileMenuOpen);
+                            document.querySelector('.sidebar')?.classList.toggle('mobile-open');
+                        }}
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? '✕' : '☰'}
+                    </button>
+
                     <Link href="/home" className="topbar-logo">
                         <span className="logo-icon">📱</span>
                         <span className="logo-text">RetroSpace</span>

@@ -18,42 +18,52 @@ export default function RoomsPage() {
                 </div>
 
                 <div className="rooms-grid">
-                    {mockRooms.map((room) => (
-                        <Link key={room.id} href={`/rooms/${room.id}`} className="room-card card">
-                            <div className="room-avatar">
-                                <div className="room-icon">{room.avatar || '👥'}</div>
-                            </div>
-                            <div className="room-info">
-                                <h3 className="room-name">{room.name}</h3>
-                                <p className="room-description">{room.description}</p>
-                                <div className="room-meta">
-                                    <span className="room-members">
-                                        👤 {room.members.length} members
-                                    </span>
-                                    <span className="room-date">
-                                        Created {new Date(room.createdAt).toLocaleDateString()}
-                                    </span>
+                    {mockRooms.map((room, index) => {
+                        // Themed colors for each room
+                        const roomColors = ['FF69B4', '9B59B6', 'FF8C42', '8B4513', '17A2B8', '5CB85C'];
+                        const color = roomColors[index] || 'CCCCCC';
+
+                        return (
+                            <Link key={room.id} href={`/rooms/${room.id}`} className="room-card card">
+                                <div className="room-avatar">
+                                    <img
+                                        src={`https://picsum.photos/seed/${room.id}/200/200`}
+                                        alt={room.name}
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'var(--radius-lg)' }}
+                                    />
                                 </div>
-                            </div>
-                            <div className="room-preview">
-                                <div className="member-avatars">
-                                    {room.members.slice(0, 4).map((memberId) => {
-                                        const member = getUserById(memberId);
-                                        return member ? (
-                                            <div key={memberId} className="avatar avatar-sm">
-                                                <div className="avatar-placeholder">{member.displayName[0]}</div>
+                                <div className="room-info">
+                                    <h3 className="room-name">{room.name}</h3>
+                                    <p className="room-description">{room.description}</p>
+                                    <div className="room-meta">
+                                        <span className="room-members">
+                                            👤 {room.members.length} members
+                                        </span>
+                                        <span className="room-date">
+                                            Created {new Date(room.createdAt).toLocaleDateString()}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="room-preview">
+                                    <div className="member-avatars">
+                                        {room.members.slice(0, 4).map((memberId) => {
+                                            const member = getUserById(memberId);
+                                            return member ? (
+                                                <div key={memberId} className="avatar avatar-sm">
+                                                    <div className="avatar-placeholder">{member.displayName[0]}</div>
+                                                </div>
+                                            ) : null;
+                                        })}
+                                        {room.members.length > 4 && (
+                                            <div className="avatar avatar-sm more-members">
+                                                +{room.members.length - 4}
                                             </div>
-                                        ) : null;
-                                    })}
-                                    {room.members.length > 4 && (
-                                        <div className="avatar avatar-sm more-members">
-                                            +{room.members.length - 4}
-                                        </div>
-                                    )}
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    ))}
+                            </Link>
+                        );
+                    })}
                 </div>
 
                 <div className="create-room-cta card panel-glossy">

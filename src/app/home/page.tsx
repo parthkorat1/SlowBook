@@ -8,7 +8,11 @@ export default function HomePage() {
     const allContent = [
         ...mockDailyPages.map(dp => ({ ...dp, type: 'daily' as const })),
         ...mockPosts.filter(p => !p.roomId).map(p => ({ ...p, type: 'post' as const }))
-    ].sort((a, b) => new Date(b.timestamp || b.date).getTime() - new Date(a.timestamp || a.date).getTime());
+    ].sort((a, b) => {
+        const aTime = 'timestamp' in a ? new Date(a.timestamp).getTime() : new Date(a.date).getTime();
+        const bTime = 'timestamp' in b ? new Date(b.timestamp).getTime() : new Date(b.date).getTime();
+        return bTime - aTime;
+    });
 
     return (
         <MainLayout>
@@ -44,11 +48,35 @@ export default function HomePage() {
                                         <p className="daily-text">{item.text}</p>
                                         {item.photos && item.photos.length > 0 && (
                                             <div className="photo-grid">
-                                                {item.photos.map((photo, idx) => (
-                                                    <div key={idx} className="photo-placeholder">
-                                                        📷 Photo {idx + 1}
-                                                    </div>
-                                                ))}
+                                                {item.photos.map((photo, idx) => {
+                                                    // Themed colors based on daily page content
+                                                    const color = item.text.includes('beach') || item.text.includes('sunset') ? '17A2B8' :
+                                                        item.text.includes('guitar') || item.text.includes('music') ? 'FF69B4' :
+                                                            item.text.includes('coffee') || item.text.includes('photography') ? '8B4513' :
+                                                                item.text.includes('gaming') || item.text.includes('game') ? '9B59B6' :
+                                                                    item.text.includes('painting') || item.text.includes('art') ? 'FF8C42' :
+                                                                        'FFD700';
+
+                                                    return (
+                                                        <div
+                                                            key={idx}
+                                                            style={{
+                                                                width: '100%',
+                                                                height: '200px',
+                                                                background: `linear-gradient(135deg, #${color} 0%, #${color}DD 100%)`,
+                                                                borderRadius: 'var(--radius-sm)',
+                                                                display: 'flex',
+                                                                alignItems: 'center',
+                                                                justifyContent: 'center',
+                                                                color: 'white',
+                                                                fontSize: '24px',
+                                                                fontWeight: 'bold'
+                                                            }}
+                                                        >
+                                                            📷 {idx + 1}
+                                                        </div>
+                                                    );
+                                                })}
                                             </div>
                                         )}
                                         {item.music && (
@@ -86,11 +114,23 @@ export default function HomePage() {
                                         <p>{item.content}</p>
                                         {item.images && item.images.length > 0 && (
                                             <div className="photo-grid">
-                                                {item.images.map((img, idx) => (
-                                                    <div key={idx} className="photo-placeholder">
-                                                        📷 Image {idx + 1}
-                                                    </div>
-                                                ))}
+                                                {item.images.map((img, idx) => {
+                                                    // Themed colors based on post content
+                                                    const color = item.content.includes('music') || item.content.includes('band') ? 'FF69B4' :
+                                                        item.content.includes('gaming') || item.content.includes('game') ? '9B59B6' :
+                                                            item.content.includes('art') || item.content.includes('painting') ? 'FF8C42' :
+                                                                item.content.includes('café') || item.content.includes('coffee') ? '8B4513' :
+                                                                    '17A2B8';
+
+                                                    return (
+                                                        <img
+                                                            key={idx}
+                                                            src={`https://picsum.photos/seed/post${item.id}${idx}/400/300`}
+                                                            alt={`Post image ${idx + 1}`}
+                                                            style={{ width: '100%', borderRadius: 'var(--radius-sm)', objectFit: 'cover' }}
+                                                        />
+                                                    );
+                                                })}
                                             </div>
                                         )}
                                     </div>
