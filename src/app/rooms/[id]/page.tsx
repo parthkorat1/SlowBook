@@ -1,13 +1,16 @@
 'use client';
 
-import { use } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { getRoomById, getPostsByRoomId, getUserById } from '@/data/mockData';
 import '../../rooms.css';
 import './room.css';
 
-export default function RoomPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = use(params);
+interface RoomPageProps {
+    params: { id: string };
+}
+
+export default function RoomPage({ params }: RoomPageProps) {
+    const id = params.id;
     const room = getRoomById(id);
     const posts = getPostsByRoomId(id);
 

@@ -1,12 +1,15 @@
 'use client';
 
-import { use } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { getUserById, getDailyPagesByUserId } from '@/data/mockData';
 import './profile.css';
 
-export default function ProfilePage({ params }: { params: Promise<{ username: string }> }) {
-    const { username } = use(params);
+interface ProfilePageProps {
+    params: { username: string };
+}
+
+export default function ProfilePage({ params }: ProfilePageProps) {
+    const { username } = params;
     const user = getUserById('1'); // Mock - would lookup by username
     const dailyPages = getDailyPagesByUserId('1');
 
